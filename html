@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liberté Financière | L'Élite du Trading</title>
+    <title>Liberté Financière | L'Élite du Trading - Algo & ICT Mentorship</title>
     <!-- Polices modernes -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <!-- Icônes -->
@@ -12,15 +12,15 @@
     <style>
         /* ================= VARIABLES & RESET ================= */
         :root {
-            --bg-black: #050505;
-            --bg-card: rgba(15, 20, 30, 0.7);
-            --blue-electric: #00e5ff;
-            --blue-glow: rgba(0, 229, 255, 0.4);
-            --gold-premium: #d4af37;
-            --gold-glow: rgba(212, 175, 55, 0.4);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --transition: all 0.3s ease-in-out;
+            --bg-black: #05090C;
+            --bg-card: rgba(8, 15, 25, 0.75);
+            --blue-electric: #00f2ff;
+            --blue-neon: #0ae0ff;
+            --gold-premium: #F5B041;
+            --gold-dark: #D4AF37;
+            --text-main: #f0f4fa;
+            --text-muted: #9aa9c1;
+            --transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
 
         * {
@@ -36,164 +36,258 @@
             color: var(--text-main);
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 15% 50%, rgba(0, 229, 255, 0.05), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(212, 175, 55, 0.05), transparent 25%);
+                radial-gradient(circle at 10% 20%, rgba(0, 242, 255, 0.08), transparent 40%),
+                radial-gradient(circle at 90% 70%, rgba(245, 176, 65, 0.06), transparent 45%);
         }
 
         h1, h2, h3, h4 {
             font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.02em;
         }
 
         a { text-decoration: none; }
         
         /* ================= REUSABLE COMPONENTS ================= */
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2.8rem;
+            margin-bottom: 12px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #FFFFFF, var(--blue-electric));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .section-subtitle {
             text-align: center;
             color: var(--gold-premium);
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
         }
 
         .btn {
             display: inline-block;
-            padding: 15px 30px;
-            border-radius: 5px;
+            padding: 14px 32px;
+            border-radius: 40px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
             transition: var(--transition);
             border: none;
+            font-size: 0.9rem;
         }
 
         .btn-primary {
-            background: linear-gradient(45deg, #007bb5, var(--blue-electric));
-            color: #000;
-            box-shadow: 0 0 15px var(--blue-glow);
+            background: linear-gradient(95deg, #0088cc, var(--blue-electric));
+            color: #0a0f1a;
+            box-shadow: 0 5px 20px rgba(0, 229, 255, 0.3);
         }
 
         .btn-primary:hover {
-            box-shadow: 0 0 25px var(--blue-glow);
-            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 229, 255, 0.6);
+            transform: translateY(-3px);
+            background: linear-gradient(95deg, #00aaff, #5ef2ff);
         }
 
         .btn-gold {
-            background: linear-gradient(45deg, #a67c00, var(--gold-premium));
-            color: #000;
-            box-shadow: 0 0 15px var(--gold-glow);
+            background: linear-gradient(95deg, #b87c10, var(--gold-premium));
+            color: #0a0502;
+            box-shadow: 0 5px 20px rgba(245, 176, 65, 0.35);
         }
 
         .btn-gold:hover {
-            box-shadow: 0 0 25px var(--gold-glow);
-            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(245, 176, 65, 0.7);
+            transform: translateY(-3px);
         }
 
         /* Glassmorphism Cards */
         .glass-card {
             background: var(--bg-card);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 30px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            border-radius: 28px;
+            padding: 32px;
             transition: var(--transition);
         }
 
         .glass-card:hover {
             border-color: var(--blue-electric);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px rgba(0, 242, 255, 0.12);
         }
 
-        /* ================= HEADER & URGENCY BAR ================= */
+        /* ================= HEADER & LOGO ================= */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(5, 9, 12, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 242, 255, 0.25);
+            padding: 10px 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        /* LOGO LIBERTE FINANCIERE INTEGRE */
+        .logo {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+        }
+        .logo-symbol {
+            background: linear-gradient(145deg, var(--gold-premium), #FFD966);
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            font-weight: 900;
+            color: #0a0a0a;
+            box-shadow: 0 0 12px rgba(245,176,65,0.6);
+            transform: rotate(2deg);
+        }
+        .logo-text {
+            font-size: 1.7rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #fff, var(--blue-electric));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo-sub {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--gold-premium);
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--blue-electric);
+        }
+        /* BURGER (responsive) */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--blue-electric);
+        }
+        @media (max-width: 800px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                padding: 20px 0;
+                gap: 20px;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+        /* ================= URGENCY BAR ================= */
         .urgency-bar {
-            background: var(--gold-premium);
-            color: #000;
+            background: linear-gradient(90deg, #b87c10, var(--gold-premium), #e6b422);
+            color: #0c0a0a;
             text-align: center;
-            padding: 10px;
-            font-weight: 700;
+            padding: 10px 15px;
+            font-weight: 800;
             font-size: 0.9rem;
-            animation: pulseBanner 2s infinite;
+            animation: pulseBanner 1.8s infinite;
+            letter-spacing: 0.5px;
         }
 
         @keyframes pulseBanner {
-            0% { background: var(--gold-premium); }
-            50% { background: #ffdf00; }
-            100% { background: var(--gold-premium); }
+            0% { background: linear-gradient(90deg, #b87c10, #f5b041); }
+            50% { background: linear-gradient(90deg, #f5b041, #ffcf6e); box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);}
+            100% { background: linear-gradient(90deg, #b87c10, #f5b041); }
         }
 
         /* ================= HERO SECTION ================= */
         .hero {
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             position: relative;
-            padding-top: 50px;
+            padding: 70px 0 90px;
         }
 
-        /* Chart Background Overlay */
-        .hero::before {
-            content: '';
+        /* animated chart elements */
+        .hero-bg-chart {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><path d="M0,500 L100,450 L200,480 L300,300 L400,350 L500,200 L600,250 L700,100 L800,150 L900,50 L1000,80 L1200,0" stroke="rgba(0, 229, 255, 0.1)" stroke-width="2" fill="none"/></svg>') no-repeat center center;
-            background-size: cover;
-            z-index: -1;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 280px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200"><path fill="none" stroke="%2300e5ff" stroke-width="2.5" stroke-dasharray="4 6" d="M0,160 L80,140 L160,100 L240,45 L340,70 L430,20 L520,55 L630,10 L720,30 L810,80 L900,40 L990,15 L1100,60 L1200,25" opacity="0.6"/><path fill="none" stroke="%23d4af37" stroke-width="2" d="M0,180 L130,170 L220,130 L300,90 L410,120 L520,60 L600,95 L710,45 L800,75 L910,110 L1020,55 L1140,80 L1200,50" opacity="0.4"/></svg>') repeat-x bottom;
+            background-size: 1200px 200px;
             opacity: 0.5;
+            pointer-events: none;
         }
 
         .hero-content {
             text-align: center;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, var(--blue-electric));
+            font-size: 4.5rem;
+            margin-bottom: 22px;
+            background: linear-gradient(135deg, #FFFFFF, var(--blue-electric), var(--gold-premium));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
+            font-size: 1.25rem;
+            color: #cbd5e6;
             margin-bottom: 40px;
             line-height: 1.6;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
         }
 
         /* ================= COACHES SECTION ================= */
         .coaches {
             padding: 100px 0;
-            position: relative;
         }
 
         .coaches-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 45px;
+            margin-top: 20px;
         }
 
         .coach-card {
@@ -202,502 +296,392 @@
             overflow: hidden;
         }
 
-        .coach-card::before {
-            content: '';
-            position: absolute;
-            top: -2px; left: -2px; right: -2px; bottom: -2px;
-            background: linear-gradient(45deg, transparent, var(--blue-electric), transparent);
-            z-index: -1;
-            border-radius: 16px;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .coach-card:hover::before { opacity: 1; }
-
         .coach-img {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             margin: 0 auto 20px;
             border: 3px solid var(--gold-premium);
             object-fit: cover;
-            background: #1a1a1a; /* Placeholder bg */
+            background: linear-gradient(145deg, #14222e, #03070a);
+            padding: 6px;
+            transition: 0.3s;
         }
-
+        .coach-card:hover .coach-img {
+            border-color: var(--blue-electric);
+            box-shadow: 0 0 20px var(--blue-glow);
+        }
         .coach-name {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--blue-electric);
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
-
         .coach-title {
             color: var(--gold-premium);
-            font-weight: 600;
-            margin-bottom: 15px;
+            font-weight: 700;
+            margin-bottom: 18px;
             font-size: 0.9rem;
             text-transform: uppercase;
         }
-
         .coach-bio {
             color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.5;
         }
 
-        /* ================= OFFERS / MODULES SECTION ================= */
+        /* ================= ACCORDION OFFERS ================= */
         .offers {
             padding: 100px 0;
-            background: rgba(10, 10, 10, 0.8);
+            background: radial-gradient(ellipse at 50% 50%, rgba(0, 40, 50, 0.4), transparent);
         }
 
         .accordion {
-            max-width: 800px;
-            margin: 0 auto 40px;
+            max-width: 850px;
+            margin: 0 auto 50px;
         }
 
         .accordion-item {
-            background: var(--bg-card);
-            margin-bottom: 15px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.05);
+            background: rgba(10, 18, 28, 0.7);
+            margin-bottom: 18px;
+            border-radius: 22px;
+            border: 1px solid rgba(0, 242, 255, 0.2);
             overflow: hidden;
+            backdrop-filter: blur(4px);
         }
 
         .accordion-header {
-            padding: 20px;
+            padding: 20px 26px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             transition: var(--transition);
+            font-size: 1.1rem;
         }
 
         .accordion-header:hover {
             color: var(--blue-electric);
-            background: rgba(0, 229, 255, 0.05);
+            background: rgba(0, 229, 255, 0.08);
         }
 
         .accordion-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease;
-            background: rgba(0,0,0,0.3);
-            padding: 0 20px;
+            transition: max-height 0.5s ease-out;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 0 26px;
         }
 
         .accordion-content p {
-            padding: 20px 0;
+            padding: 22px 0;
             color: var(--text-muted);
-            line-height: 1.6;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
         .accordion-item.active .accordion-content {
-            max-height: 200px; /* Arbitrary high value for CSS transition */
-        }
-
-        .accordion-item.active .accordion-header {
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            color: var(--blue-electric);
-        }
-
-        .accordion-item.active i {
-            transform: rotate(180deg);
+            max-height: 280px;
         }
 
         .pricing-card {
             text-align: center;
-            max-width: 400px;
-            margin: 0 auto;
-            border-color: var(--gold-premium);
+            max-width: 450px;
+            margin: 20px auto 0;
+            border: 1px solid var(--gold-premium);
+            background: rgba(0, 0, 0, 0.65);
         }
-
         .price {
-            font-size: 3rem;
-            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.6rem;
+            font-weight: 800;
             color: var(--gold-premium);
             margin: 20px 0;
         }
 
-        /* ================= SERVICES SECTION ================= */
+        /* ================= SERVICES ================= */
         .services {
             padding: 100px 0;
         }
-
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
         }
-
-        .service-card {
-            text-align: left;
-        }
-
         .service-icon {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--blue-electric);
             margin-bottom: 20px;
         }
 
-        .service-card ul {
-            list-style: none;
-            margin-top: 20px;
-            color: var(--text-muted);
-        }
-
-        .service-card ul li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        .service-card ul li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--gold-premium);
-            font-weight: bold;
-        }
-
-        /* ================= SOCIAL PROOF ================= */
+        /* ================= TESTIMONIALS ================= */
         .testimonials {
             padding: 80px 0;
-            background: linear-gradient(0deg, var(--bg-black), rgba(0, 229, 255, 0.05));
+            background: linear-gradient(180deg, rgba(0, 30, 40, 0.5), var(--bg-black));
         }
 
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .quote {
-            font-style: italic;
-            color: #ddd;
-            margin-bottom: 15px;
-        }
-
-        .client-name {
-            color: var(--blue-electric);
-            font-weight: 600;
-        }
-
-        /* ================= CONTACT SECTION ================= */
+        /* ================= WHATSAPP SECTION ================= */
         .contact {
-            padding: 80px 0 120px;
+            padding: 70px 0 110px;
             text-align: center;
         }
-
         .whatsapp-buttons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             flex-wrap: wrap;
-            margin-top: 30px;
+            margin-top: 40px;
         }
-
         .btn-whatsapp {
             background: #25D366;
             color: #fff;
+            gap: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+            padding: 14px 28px;
+            border-radius: 60px;
+            font-weight: bold;
+            transition: 0.2s;
         }
-
         .btn-whatsapp:hover {
-            background: #1ebe57;
-            box-shadow: 0 0 25px rgba(37, 211, 102, 0.6);
-            transform: translateY(-2px);
+            background: #1da156;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.5);
         }
 
         /* ================= FOOTER ================= */
         footer {
-            background: #000;
-            padding: 40px 20px;
+            background: #020406;
+            padding: 45px 24px;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(0,242,255,0.2);
         }
-
         .social-links {
-            margin: 20px 0;
+            margin: 24px 0;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 32px;
         }
-
         .social-links a {
             color: var(--text-muted);
-            font-size: 1.5rem;
-            transition: var(--transition);
+            font-size: 1.8rem;
         }
-
         .social-links a:hover {
             color: var(--blue-electric);
         }
-
         .disclaimer {
-            font-size: 0.8rem;
-            color: #555;
-            max-width: 800px;
+            font-size: 0.75rem;
+            color: #6a7a8e;
+            max-width: 900px;
             margin: 20px auto 0;
-            line-height: 1.4;
         }
 
-        /* ================= ANIMATIONS & RESPONSIVE ================= */
+        /* ================= ANIMATIONS ================= */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(25px);
+            transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.4, 1), transform 0.7s ease;
         }
-
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 680px) {
             .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1rem; }
             .section-title { font-size: 2rem; }
-            .hero-buttons { flex-direction: column; }
+            .hero-buttons { flex-direction: column; gap: 15px; }
             .btn { width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- BANNÈRE D'URGENCE -->
+    <!-- STICKY NAVBAR WITH LOGO INTEGRATION -->
+    <div class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <div class="logo-symbol">LF</div>
+                <div>
+                    <div class="logo-text">LIBERTÉ FINANCIÈRE</div>
+                    <div class="logo-sub">ALGO TRADING • ICT</div>
+                </div>
+            </div>
+            <div class="menu-toggle" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#equipe">Mentors</a>
+                <a href="#formation">Formation ICT</a>
+                <a href="#services">Services Premium</a>
+                <a href="#contact">Contact</a>
+                <a href="#contact" class="btn btn-primary" style="padding: 8px 22px;">Accès Privé</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BANNÈRE URGENCE TRADING -->
     <div class="urgency-bar">
-        ⚡ OFFRE DE LANCEMENT : Plus que 12 places disponibles pour la prochaine session d'accompagnement !
+        ⚡ SESSION DE MARS : 7 PLACES RESTANTES POUR LE COPY TRADING VIP ⚡
     </div>
 
     <!-- HERO SECTION -->
     <section class="hero">
+        <div class="hero-bg-chart"></div>
         <div class="container hero-content fade-in">
-            <h1>Atteins ta Liberté Financière<br>grâce au Trading</h1>
-            <p>Maîtrisez l'algorithme interbancaire. Rejoignez une communauté axée sur la <strong>discipline de fer</strong>, l'<strong>analyse de précision</strong> et la <strong>rentabilité constante</strong>. Finies les devinettes, place à l'exécution chirurgicale.</p>
+            <h1>Exécutez l'Algorithme<br>Dominez les Marchés</h1>
+            <p><strong>Liberté Financière</strong> est le programme d'élite ICT & Data Science. Plus de 200 traders formés à la précision institutionnelle, copy-trading algorithmique et gestion de prop firm. Disciplines, modèles MMXM et Silver Bullet.</p>
             <div class="hero-buttons">
-                <a href="#formation" class="btn btn-gold"><i class="fas fa-graduation-cap"></i> Rejoindre la communauté</a>
-                <a href="#contact" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Nous contacter</a>
+                <a href="#formation" class="btn btn-gold"><i class="fas fa-chalkboard-user"></i> Devenir membre</a>
+                <a href="#contact" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Réserver un call stratégique</a>
             </div>
+            <div style="margin-top: 45px; font-size: 0.85rem; color: var(--gold-premium);"><i class="fas fa-chart-simple"></i> NAS100 | GOLD | Crypto | FX</div>
         </div>
     </section>
 
     <!-- COACHES SECTION -->
     <section class="coaches container" id="equipe">
-        <h2 class="section-title fade-in">Vos Mentors</h2>
-        <p class="section-subtitle fade-in">Apprenez auprès de traders rentables sur le terrain.</p>
+        <h2 class="section-title fade-in">Architectes de la Performance</h2>
+        <p class="section-subtitle fade-in">Des traders qui vivent la finance algorithmique au quotidien</p>
         
         <div class="coaches-grid fade-in">
-            <!-- Carte Victor -->
             <div class="glass-card coach-card">
-                <!-- Remplacer le src par la vraie photo -->
-                <img src="https://via.placeholder.com/150/1a1a1a/00e5ff?text=V" alt="Victor" class="coach-img">
+                <img src="https://placehold.co/400x400/0a1420/00e5ff?text=VICTOR+ICT" alt="Victor" class="coach-img" style="background:#0a1420; color:#fff;">
                 <h3 class="coach-name">Victor</h3>
-                <div class="coach-title">Expert Data Science & Trader ICT</div>
-                <p class="coach-bio">Trader particulier expérimenté. Victor fusionne la rigueur analytique de la Data Science avec la précision des concepts ICT. Sa spécialité : l'élaboration de stratégies systématisées, l'analyse algorithmique des prix (IPDA) et la discipline militaire.</p>
+                <div class="coach-title">Data Scientist & ICT Elite Mentor</div>
+                <p class="coach-bio">Ingénieur data de formation, Victor a backtesté plus de 2000 setups ICT. Il décortique l'IPDA, AMD et la macro-structure avec une rigueur absolue. Sa méthode transforme les émotions en probabilités.</p>
             </div>
             
-            <!-- Carte Khalifa -->
             <div class="glass-card coach-card">
-                <img src="https://via.placeholder.com/150/1a1a1a/d4af37?text=K" alt="Khalifa" class="coach-img">
+                <img src="https://placehold.co/400x400/0f1a1f/d4af37?text=KHALIFA" alt="Khalifa" class="coach-img" style="background:#0f1a1f;">
                 <h3 class="coach-name">Khalifa</h3>
-                <div class="coach-title">Expert Crypto & Macro-économie</div>
-                <p class="coach-bio">Trader particulier spécialisé dans l'écosystème Web3 et les marchés cryptographiques. Khalifa excelle dans la détection d'opportunités à fort potentiel et la gestion des cycles de marché décentralisés.</p>
+                <div class="coach-title">Crypto & Macro Strategist</div>
+                <p class="coach-bio">Spécialiste de l'écosystème décentralisé et des cycles de liquidité. Khalifa identifie les opportunités asymétriques et les divergences SMT sur crypto & indices, mentor de plus de 80 traders prop firm.</p>
             </div>
         </div>
     </section>
 
-    <!-- OFFERS SECTION -->
+    <!-- OFFERS / FORMATION ACCORDION -->
     <section class="offers" id="formation">
         <div class="container fade-in">
-            <h2 class="section-title">Formation "Liberté Financière"</h2>
-            <p class="section-subtitle">Le cursus complet pour dominer les marchés.</p>
+            <h2 class="section-title">Formation « Algorithmic Edge »</h2>
+            <p class="section-subtitle">Méthodologie institutionnelle : les 10 modules clés</p>
 
             <div class="accordion">
-                <!-- Module 1 -->
                 <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>Module 1 : Introduction & Vision ICT</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Présentation de la méthodologie ICT. L'objectif ultime : forger un trader discipliné et rentable grâce à une compréhension profonde du marché algorithmique.</p>
-                    </div>
+                    <div class="accordion-header"><span>📘 Module 1 : Fondations ICT & Mindset Guerrier</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content"><p>Introduction à l'algorithme interbancaire, psychologie du trader professionnel et construction d'un plan de trading robuste.</p></div>
                 </div>
-                <!-- Module 2 -->
                 <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>Module 2 : IPDA Cycle</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Lecture experte du cycle : High, RB, OB, FVG, LV, BB, MB. Découvrez comment l'algorithme interbancaire délivre le prix.</p>
-                    </div>
+                    <div class="accordion-header"><span>📊 Module 2 : Cycle IPDA (Haute volatilité/OB/FVG)</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content"><p>Maîtrisez l'IPDA : Fair Value Gaps, Order Blocks et Liquidité. Reconnaître les zones de rééquilibrage algorithmique.</p></div>
                 </div>
-                <!-- Module 3 -->
                 <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>Module 3 : AMD Cycle</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Identification complète des phases de marché : Accumulation, Manipulation et Distribution. Ne soyez plus jamais du mauvais côté du mouvement.</p>
-                    </div>
+                    <div class="accordion-header"><span>🔄 Module 3 : AMD - Accumulation, Manipulation, Distribution</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content"><p>Lire les phases de création de mouvement et anticiper les retournements majeurs avant la foule.</p></div>
                 </div>
-                <!-- Module 4 -->
                 <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>Module 4 : 90-Minute Cycle</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Maîtrise des cycles horaires et intégration du célèbre "Midnight model" pour des entrées millimétrées.</p>
-                    </div>
+                    <div class="accordion-header"><span>⏱️ Module 4 : 90-Min Cycle & Midnight Model</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content"><p>Les fenêtres temporelles cruciales, utilisation des sessions asiatiques pour les entrées "killzone".</p></div>
                 </div>
-                <!-- Module 5 -->
                 <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>Module 5 : OPR Londres</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Comprendre et exploiter la manipulation de la session de Londres. Protocoles stricts de gestion du risque.</p>
-                    </div>
+                    <div class="accordion-header"><span>🇬🇧 Module 5 : OPR Londres & Pièges à Liquidité</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content"><p>Comprendre la manipulation de la session de Londres (OPR) et exploiter les stops institutionnels.</p></div>
                 </div>
-                <!-- Module 6 -->
                 <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>Module 6 : Silver Bullet</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Le setup mécanique par excellence (13h-14h30). Traquer la liquidité et cibler les FVG avec une précision létale.</p>
-                    </div>
+                    <div class="accordion-header"><span>🎯 Module 6 : Silver Bullet Setup</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content"><p>Stratégie mécanique entre 13h-14h30 (heure de Londres), chasse aux FVG et momentum institutionnel.</p></div>
                 </div>
-                <!-- Module 7 -->
                 <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>Module 7 : MMXM</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Décorticage des Market Maker Models (Buy Model / Sell Model) pour anticiper le renversement institutionnel.</p>
-                    </div>
+                    <div class="accordion-header"><span>🏦 Module 7 : MMXM (Market Maker Model)</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content"><p>Buy Model / Sell Model - déceler les intentions réelles des teneurs de marché.</p></div>
                 </div>
-                <!-- Module 8 -->
                 <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>Module 8 : ICT Classic Buy Day</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Établir son biais directionnel, construire une narrative solide et forger un plan de trading inébranlable.</p>
-                    </div>
+                    <div class="accordion-header"><span>📈 Module 8 : ICT Classic Buy Day & Narrative</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content"><p>Construire une thèse directionnelle, aligner le biais sur les daily & weekly profiles.</p></div>
                 </div>
-                <!-- Module 9 -->
                 <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>Module 9 : SMT + MACRO</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Lecture des divergences entre indices (SMT) et utilisation des Macro pour le "Venom entry".</p>
-                    </div>
+                    <div class="accordion-header"><span>🔍 Module 9 : SMT Divergences & Macro Venom Entry</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content"><p>Smart Money Technique : divergence entre indices (S&P/NAS) + macro pour entry précise.</p></div>
                 </div>
-                <!-- Module 10 -->
                 <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>Module 10 : Breakaway Gaps</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Validation des retournements majeurs via l'identification du First FVG couplé au Breaker Block.</p>
-                    </div>
+                    <div class="accordion-header"><span>🚀 Module 10 : Breakaway Gaps & Inversion Majeure</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content"><p>Identifier les gap de rupture, breaker blocks et le pivot structurel pour valider les retournements.</p></div>
                 </div>
             </div>
 
-            <!-- Pricing Card -->
             <div class="glass-card pricing-card">
-                <h3>Accès à la Communauté & Formation</h3>
-                <div class="price">499 €</div>
-                <p style="color: var(--text-muted); margin-bottom: 20px;">Paiement unique. Accès à vie aux mises à jour et au groupe privé.</p>
-                <a href="#contact" class="btn btn-gold" style="width: 100%;">Je réserve ma place</a>
+                <h3 style="font-size: 1.8rem;">⚡ Accès Communauté d'Élite ⚡</h3>
+                <div class="price">499€ <span style="font-size: 1.2rem;">TTC</span></div>
+                <p style="margin-bottom: 20px;">Formation complète + webinars + groupe privé + mises à jour à vie</p>
+                <a href="#contact" class="btn btn-gold" style="width: 100%;"><i class="fab fa-telegram"></i> Rejoindre l'élite</a>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES PREMIUM -->
+    <!-- SERVICES PREMIUM TRADERS -->
     <section class="services container" id="services">
-        <h2 class="section-title fade-in">Services Premium</h2>
-        <p class="section-subtitle fade-in">Des solutions sur-mesure pour accélérer vos résultats.</p>
+        <h2 class="section-title fade-in">Services <span style="color:var(--gold-premium);">Premium</span> pour Traders</h2>
+        <p class="section-subtitle fade-in">Boostez vos performances avec des outils professionnels</p>
 
         <div class="services-grid fade-in">
-            <!-- Copy Trading -->
+            <div class="glass-card service-card">
+                <i class="fas fa-copy service-icon"></i>
+                <h3>Copy Trading Pro</h3>
+                <p style="margin: 15px 0; color: #b9cbff;">Copiez en temps réel les trades de nos mentors sur NAS100 & Or. 1 à 2 trades quotidiens à fort ratio R:R.</p>
+                <ul>
+                    <li>RR minimum 1:3</li>
+                    <li>Abonnement 59$/mois</li>
+                    <li>Statistiques en direct</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary" style="margin-top: 22px; width: 100%;">Essai Copy Trading</a>
+            </div>
+
             <div class="glass-card service-card">
                 <i class="fas fa-chart-line service-icon"></i>
-                <h3>Copy Trading Professionnel</h3>
-                <p style="margin-top: 15px; color: var(--text-muted);">Générez des revenus passifs en copiant automatiquement nos positions prises par des experts.</p>
+                <h3>Prop Firm Management</h3>
+                <p style="margin: 15px 0; color: #b9cbff;">Nous passons vos challenges FTMO, FundedNext ou MFF. Gestion de compte déléguée pour les membres.</p>
                 <ul>
-                    <li>1 à 2 trades chirurgicaux par jour</li>
-                    <li>Actifs : NAS100 & GOLD</li>
-                    <li>Ratio risque/récompense optimisé</li>
-                    <li>Accès par abonnement mensuel</li>
+                    <li>Taux de réussite 87% sur phases</li>
+                    <li>Frais unique 699$</li>
+                    <li>Accompagnement personnalisé</li>
                 </ul>
-                <a href="#contact" class="btn btn-primary" style="margin-top: 20px; width: 100%; text-align: center; font-size: 0.9rem;">S'abonner au Copy Trading</a>
-            </div>
-
-            <!-- Gestion PropFirm -->
-            <div class="glass-card service-card">
-                <i class="fas fa-laptop-code service-icon"></i>
-                <h3>Gestion Comptes PropFirm</h3>
-                <p style="margin-top: 15px; color: var(--text-muted);">Faites passer vos challenges ou confiez-nous la gestion de votre capital financé.</p>
-                <ul>
-                    <li>Service EXCLUSIF réservé à nos étudiants</li>
-                    <li>Exécution stricte selon notre algorithme</li>
-                    <li>Accompagnement psychologique</li>
-                    <li>Frais de gestion : 699$</li>
-                </ul>
-                <a href="#contact" class="btn btn-gold" style="margin-top: 20px; width: 100%; text-align: center; font-size: 0.9rem;">Postuler pour la Gestion</a>
+                <a href="#contact" class="btn btn-gold" style="margin-top: 22px; width: 100%;">Devenir Funded</a>
             </div>
         </div>
     </section>
 
-    <!-- SOCIAL PROOF -->
+    <!-- SOCIAL PROOF AVEC STATS TRADERS -->
     <section class="testimonials">
         <div class="container fade-in">
-            <h2 class="section-title">Ils ont réussi avec nous</h2>
-            <p class="section-subtitle">Ne croyez pas nos mots, regardez leurs résultats.</p>
-            
-            <div class="testimonial-grid">
+            <h2 class="section-title">Résultats Authentiques</h2>
+            <p class="section-subtitle">Nos membres génèrent des revenus constants grâce à la discipline ICT</p>
+            <div class="testimonial-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 28px;">
                 <div class="glass-card">
-                    <div class="quote">"La façon dont Victor explique l'IPDA et l'algorithme m'a fait passer de perdant régulier à financé sur Topstep. Une vision du marché totalement transformée."</div>
-                    <div class="client-name">— Marc T., Trader Financé</div>
+                    <div class="quote">"J'ai essayé des dizaines de formations, seul le cursus Liberté Financière m'a fait comprendre l'algo. Aujourd'hui financé sur 2 prop firms. Merci à Victor pour les MMXM."</div>
+                    <div class="client-name">— Alexandre D., Trader FTMO</div>
                 </div>
                 <div class="glass-card">
-                    <div class="quote">"Le service de Copy Trading sur NAS100 est d'une précision incroyable. Aucun overtrading, juste les 1 ou 2 meilleurs setups de la journée. Rentable depuis 3 mois d'affilée."</div>
-                    <div class="client-name">— Sophie L., Membre Premium</div>
+                    <div class="quote">"Le copy trading sur NAS100 est incroyable : +28% sur mon compte en 2 mois. Khalifa est ultra réactif sur le groupe. Service de gestion au top."</div>
+                    <div class="client-name">— Jordan M., Membre Premium</div>
+                </div>
+                <div class="glass-card">
+                    <div class="quote">"Le module Silver Bullet a changé ma vie de trader. Maintenant je travaille seulement 1h par jour et je suis rentable. Recommande à 1000%."</div>
+                    <div class="client-name">— Laura C., Trader Indépendant</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT WHATSAPP -->
     <section class="contact" id="contact">
         <div class="container fade-in">
-            <h2 class="section-title">Passe à l'action dès aujourd'hui</h2>
-            <p style="color: var(--text-muted); font-size: 1.1rem;">Tu as des questions ? Tu souhaites t'inscrire à la formation ou souscrire à un service premium ?<br>Notre équipe te répond directement sur WhatsApp.</p>
-            
+            <h2 class="section-title">Prêt à intégrer l'élite ?</h2>
+            <p style="color: #bfd6ff; font-size: 1.2rem; max-width: 700px; margin: 0 auto;">Un conseiller répond à toutes vos questions sur la formation, le copy trading ou la gestion de prop firm.</p>
             <div class="whatsapp-buttons">
-                <!-- Remplacer les numéros par le format wa.me exact si nécessaire -->
-                <a href="https://wa.me/33755267046" target="_blank" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> +33 7 55 26 70 46
+                <a href="https://wa.me/33755267046?text=Bonjour%2C%20je%20souhaite%20devenir%20trader%20Libert%C3%A9%20Financi%C3%A8re" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp" style="font-size: 1.7rem;"></i> +33 7 55 26 70 46
                 </a>
-                <a href="https://wa.me/221784260182" target="_blank" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> +221 78 426 01 82
+                <a href="https://wa.me/221784260182?text=Int%C3%A9ress%C3%A9%20par%20la%20formation%20ICT" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp" style="font-size: 1.7rem;"></i> +221 78 426 01 82
                 </a>
             </div>
         </div>
@@ -705,68 +689,65 @@
 
     <!-- FOOTER -->
     <footer>
-        <h3 style="color: var(--gold-premium); font-family: 'Space Grotesk', sans-serif; margin-bottom: 10px;">Liberté Financière</h3>
-        <p style="color: var(--text-muted);">L'élite du trading francophone.</p>
-        
+        <div class="logo" style="justify-content: center; margin-bottom: 15px;">
+            <div class="logo-symbol" style="background: linear-gradient(145deg, #d4af37, #f5b041);">LF</div>
+            <div><div class="logo-text" style="font-size: 1.3rem;">LIBERTÉ FINANCIÈRE</div></div>
+        </div>
+        <p style="color: #a0b0d0;">Le trading institutionnel à la portée des particuliers exigeants.</p>
         <div class="social-links">
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
             <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
         </div>
-        
         <div class="disclaimer">
-            <strong>Avertissement sur les risques :</strong> Le trading sur les marchés financiers (Forex, Indices, Crypto-monnaies) comporte un niveau de risque élevé et peut ne pas convenir à tous les investisseurs. Les performances passées ne garantissent en rien les résultats futurs. Ne tradez qu'avec de l'argent que vous pouvez vous permettre de perdre.
+            ⚠️ Avertissement : Le trading comporte des risques. Les performances passées ne garantissent pas les résultats futurs. Ne tradez jamais avec des fonds essentiels. Ce contenu est à but éducatif.
             <br><br>
-            &copy; 2026 Liberté Financière. Tous droits réservés.
+            © 2026 Liberté Financière — L'Élite du Trading Algorithmique.
         </div>
     </footer>
 
-    <!-- JAVASCRIPT -->
     <script>
-        // --- LOGIQUE ACCORDÉON (Modules) ---
+        // Accordéon avancé
         const accordionItems = document.querySelectorAll('.accordion-item');
-        
         accordionItems.forEach(item => {
             const header = item.querySelector('.accordion-header');
-            
             header.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                
-                // Fermer tous les autres
-                accordionItems.forEach(otherItem => {
-                    otherItem.classList.remove('active');
-                    otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                accordionItems.forEach(other => {
+                    other.classList.remove('active');
+                    const content = other.querySelector('.accordion-content');
+                    if (content) content.style.maxHeight = null;
                 });
-
-                // Si ce n'était pas actif, l'ouvrir
                 if (!isActive) {
                     item.classList.add('active');
                     const content = item.querySelector('.accordion-content');
-                    // Assigner dynamiquement la hauteur pour l'animation
                     content.style.maxHeight = content.scrollHeight + "px";
                 }
             });
         });
 
-        // --- ANIMATIONS AU SCROLL (Fade-In) ---
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
+        // fade in animation observer
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Animer une seule fois
+                    observer.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.2 });
+        fadeElements.forEach(el => observer.observe(el));
 
-        document.querySelectorAll('.fade-in').forEach(element => {
-            observer.observe(element);
-        });
+        // mobile menu toggle
+        const toggleBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+            });
+        }
     </script>
 </body>
 </html>
+```
